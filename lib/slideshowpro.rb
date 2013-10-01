@@ -1,3 +1,7 @@
+require 'addressable/template'
+require 'addressable/uri'
+require 'json'
+require 'pry'
 require 'rest_client'
 
 %w(configuration director format).each do |file|

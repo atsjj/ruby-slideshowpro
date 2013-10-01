@@ -63,20 +63,20 @@ module Slideshowpro
     end
 
     def api_uri
-      uri = URI.parse @api_uri.to_s
+      uri = Addressable::URI.parse @api_uri.to_s
+
       if uri.scheme.nil?
-        uri.scheme = 'http'
-        uri = URI.parse uri.to_s
+        uri = Addressable::URI.parse "http://#{@api_uri.to_s}"
       end
 
-      if uri.path.nil?
+      if uri.path.empty?
         key = @api_key.split /^(.+)-(.+)$/
 
-        path = []
-        path.push 'index.php?' if key[1] == 'local'
-        path.push 'api'
-
-        uri.path = "/#{path.join('/')}"
+        if key[1] == 'local'
+          uri.path = '/index.php?/api'
+        else
+          uri.path = '/api'
+        end
       end
 
       uri

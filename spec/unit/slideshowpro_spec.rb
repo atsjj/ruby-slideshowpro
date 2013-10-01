@@ -70,5 +70,7 @@ describe Slideshowpro do
         sharpening: true,
         width: 900
     end
+
+    Slideshowpro::Album.find 1
   end
 end
