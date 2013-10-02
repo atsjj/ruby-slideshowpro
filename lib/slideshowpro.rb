@@ -1,10 +1,8 @@
-require 'addressable/template'
 require 'addressable/uri'
 require 'json'
-require 'pry'
 require 'rest_client'
 
-%w(configuration director format).each do |file|
+%w(configuration director format version).each do |file|
   require File.join(File.dirname(__FILE__), "slideshowpro", file)
 end
 
