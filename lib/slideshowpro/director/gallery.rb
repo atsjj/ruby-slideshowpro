@@ -3,8 +3,11 @@ module Slideshowpro
     class << self
       def find(id, options = {})
         options = {
-          method: 'get_album',
-          only_active: true
+          gallery_id: id,
+          limit: nil,
+          method: 'get_gallery',
+          order: 'display',
+          with_content: true
         }.merge(options)
 
         get options
@@ -12,13 +15,7 @@ module Slideshowpro
 
       def all(options = {})
         options = {
-          method: 'get_album_list',
-          only_published: true,
-          only_active: true,
-          list_only: false,
-          only_smart: false,
-          exclude_smart: false,
-          tags: []
+          method: 'get_album_list'
         }.merge(options)
 
         get options

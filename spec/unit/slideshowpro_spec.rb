@@ -72,5 +72,7 @@ describe Slideshowpro do
     end
 
     Slideshowpro::Album.find 1
+    Slideshowpro::Album.all
+    Slideshowpro::Content.find 819
   end
 end

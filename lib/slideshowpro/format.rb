@@ -30,5 +30,9 @@ module Slideshowpro
       @sharpening = options.delete :sharpening
       @width      = options.delete :width
     end
+
+    def to_array
+      [@name, @width, @height, @crop, @quality, @sharpening]
+    end
   end
 end

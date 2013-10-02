@@ -3,9 +3,9 @@ module Slideshowpro
     class << self
       def find(id, options = {})
         options = {
+          album_id: id,
           method: 'get_album',
-          only_active: true,
-          data: { album_id: id }
+          only_active: true
         }.merge(options)
 
         get options
